@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Paedagogus RCM | Hematology, Oncology & Cardiology Revenue Cycle Specialists</title>
+<meta name="description" content="Paedagogus RCM recovers revenue that standard billing misses. Specialists in Hematology, Oncology, and Cardiology buy-and-bill, infusion hierarchy coding, and data-driven denial resolution."/>
+<meta name="keywords" content="oncology RCM, hematology billing, cardiology revenue cycle, JW modifier, infusion hierarchy, buy-and-bill, denial management, MFP reimbursement"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: {
+          50: '#eef2f7',
+          100: '#d4dfe9',
+          200: '#a8bfd3',
+          300: '#7c9fbd',
+          400: '#4f7fa7',
+          500: '#2C3E50',
+          600: '#253545',
+          700: '#1e2b39',
+          800: '#16202c',
+          900: '#0f1520',
+        },
+        fgreen: {
+          50: '#eafaf1',
+          100: '#d0f0de',
+          200: '#a2e1bd',
+          300: '#74d29b',
+          400: '#46c37a',
+          500: '#27AE60',
+          600: '#229452',
+          700: '#1b7a43',
+          800: '#146035',
+          900: '#0d4626',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        tight: ['Inter Tight', 'system-ui', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { font-family: 'Inter', system-ui, sans-serif; }
+  
+  .nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #2C3E50;
+    transition: color 0.2s;
+    text-decoration: none;
+    padding-bottom: 2px;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #27AE60;
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover { color: #27AE60; }
+  .nav-link:hover::after { width: 100%; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #27AE60;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 13px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: #229452; transform: translateY(-1px); }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #2C3E50;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1.5px solid #2C3E50;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .btn-secondary:hover { background: #2C3E50; color: #fff; }
+
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.85); }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #27AE60;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .card-hover {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(44,62,80,0.1);
+  }
+
+  .metric-card {
+    background: linear-gradient(135deg, #2C3E50 0%, #1e2b39 100%);
+    border-radius: 12px;
+    padding: 28px 24px;
+    color: white;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #27AE60;
+    line-height: 1;
+    display: block;
+  }
+  .metric-label {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 8px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .hero-bg {
+    background: #2C3E50;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 55%;
+    height: 130%;
+    background: rgba(39,174,96,0.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 40%;
+    height: 80%;
+    background: rgba(39,174,96,0.04);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .stat-stripe {
+    border-left: 3px solid #27AE60;
+    padding-left: 16px;
+  }
+
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eafaf1;
+    flex-shrink: 0;
+  }
+  .icon-box svg {
+    width: 22px;
+    height: 22px;
+    stroke: #27AE60;
+  }
+  .icon-box-navy {
+    background: #eef2f7;
+  }
+  .icon-box-navy svg {
+    stroke: #2C3E50;
+  }
+
+  .specialty-tab {
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border: 1.5px solid transparent;
+    color: #6b7280;
+  }
+  .specialty-tab.active {
+    background: #2C3E50;
+    color: white;
+    border-color: #2C3E50;
+  }
+  .specialty-tab:not(.active):hover {
+    border-color: #2C3E50;
+    color: #2C3E50;
+  }
+  .specialty-panel { display: none; }
+  .specialty-panel.active { display: block; }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    background: white;
+    color: #111827;
+  }
+  .form-input:focus {
+    border-color: #27AE60;
+    box-shadow: 0 0 0 3px rgba(39,174,96,0.12);
+  }
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+
+  .divider-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 44px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 36px;
+    bottom: -12px;
+    width: 1px;
+    background: #e5e7eb;
+  }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-dot {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #27AE60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .timeline-dot span {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  #navbar {
+    transition: box-shadow 0.25s, background 0.25s;
+  }
+  #navbar.scrolled {
+    background: rgba(255,255,255,0.97) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 4px 16px rgba(44,62,80,0.06);
+  }
+
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: block; }
+
+  @media (max-width: 767px) {
+    .hero-title { font-size: 2.25rem !important; }
+    .section-title { font-size: 1.75rem !important; }
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9375rem;
+    color: #374151;
+    padding: 6px 0;
+    line-height: 1.5;
+  }
+  .checklist li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #27AE60;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2px;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+  }
+  .trust-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #27AE60;
+    flex-shrink: 0;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ripple-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 12px;
+  }
+  .ripple-row:last-child { border-bottom: none; }
+  .ripple-arrow {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #eafaf1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body class="antialiased text-gray-900 bg-white">
+
+<!-- ═══════════════════════════════ NAVBAR ══════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 text-decoration-none">
+        <div class="w-9 h-9 rounded-lg bg-navy-500 flex items-center justify-center flex-shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7v5c0 5.25 4.1 10.16 10 11.33C17.9 22.16 22 17.25 22 12V7L12 2z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-tight font-bold text-navy-500 text-lg leading-none tracking-tight">PAEDAGOGUS</span>
+          <span class="block text-xs font-semibold tracking-widest text-fgreen-500 leading-none mt-0.5">RCM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#why" class="nav-link">Why Paedagogus</a>
+        <a href="#specialties" class="nav-link">Specialties</a>
+        <a href="#impact" class="nav-link">The Ripple Impact</a>
+        <a href="#contact" class="btn-primary text-sm py-2.5 px-5">Get a Free Audit</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="md:hidden p-2 rounded-md" onclick="toggleMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2C3E50" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu md:hidden border-t border-gray-100 bg-white">
+    <div class="px-4 py-4 flex flex-col gap-3">
+      <a href="#services" class="nav-link py-2" onclick="toggleMenu()">Services</a>
+      <a href="#why" class="nav-link py-2" onclick="toggleMenu()">Why Paedagogus</a>
+      <a href="#specialties" class="nav-link py-2" onclick="toggleMenu()">Specialties</a>
+      <a href="#impact" class="nav-link py-2" onclick="toggleMenu()">The Ripple Impact</a>
+      <a href="#contact" class="btn-primary mt-2 justify-center" onclick="toggleMenu()">Get a Free Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ════════════════════════════════════ -->
+<section class="hero-bg pt-32 pb-24 lg:pt-40 lg:pb-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px w-8 bg-fgreen-500"></div>
+        <span class="text-fgreen-400 text-sm font-semibold tracking-widest uppercase">Revenue Cycle Intelligence</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-title font-tight font-extrabold text-white leading-tight mb-6" style="font-size:3.25rem; line-height:1.1;">
+        We Recover the Revenue<br/>
+        <span class="text-fgreen-400">Standard Billing Misses.</span>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-2xl">
+        Paedagogus RCM specializes exclusively in high-acuity billing for
+        <strong class="text-white font-semibold">Hematology, Oncology, and Cardiology</strong> — using
+        advanced data analysis and proprietary Excel/VBA automation to resolve the systemic
+        denial patterns others overlook. We don't just submit claims. We guard your revenue.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#contact" class="btn-primary text-base px-7 py-3.5">
+          Request Your Free 90-Day Audit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#impact" class="btn-outline-white text-base px-7 py-3.5">
+          See the Ripple Impact
+        </a>
+      </div>
+
+      <!-- Trust signals -->
+      <div class="flex flex-wrap gap-6">
+        <div class="trust-badge"><div class="trust-badge-dot"></div>Buy-and-Bill Specialists</div>
+        <div class="trust-badge"><div class="trust-badge-dot"></div>JW/JZ Modifier Experts</div>
+        <div class="trust-badge"><div class="trust-badge-dot"></div>Infusion Hierarchy Coding</div>
+        <div class="trust-badge"><div class="trust-badge-dot"></div>2026 MFP-Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ METRICS STRIPE ══════════════════════════ -->
+<section class="bg-navy-700 py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="metric-card">
+        <span class="metric-num">97%</span>
+        <div class="metric-label">Net Collection Rate Target<br/>on managed portfolios</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">&lt;42d</span>
+        <div class="metric-label">Days in A/R target<br/>vs. 55-day industry average</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">100%</span>
+        <div class="metric-label">JW/JZ Modifier<br/>capture rate after onboarding</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">$1M+</span>
+        <div class="metric-label">Typical annual recovery<br/>per oncology practice audit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SERVICES ════════════════════════════════ -->
+<section id="services" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 scroll-reveal">
+      <span class="section-label">Core Services</span>
+      <h2 class="section-title font-tight font-bold text-navy-500 mb-4" style="font-size:2.25rem;">Specialty-Grade Revenue Cycle Management</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto text-base leading-relaxed">
+        Every service is purpose-built for the billing complexity of high-acuity specialties.
+        General RCM vendors don't know what an infusion hierarchy error costs you. We do.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Service 1 -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-8 card-hover scroll-reveal" style="box-shadow:0 2px 12px rgba(44,62,80,0.06);">
+        <div class="icon-box mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 7v4l3 3"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-navy-500 text-lg mb-3">835/ERA Gap Analysis Audit</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          We parse 90 days of your remittance data through six forensic lenses: CARC code frequency, drug unit reconciliation, JW/JZ capture rate, infusion hierarchy sequencing, prior auth lag, and ASP billing accuracy.
+        </p>
+        <div class="text-fgreen-500 text-sm font-semibold">Free for qualified practices →</div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-8 card-hover scroll-reveal" style="box-shadow:0 2px 12px rgba(44,62,80,0.06);">
+        <div class="icon-box mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M21 3h-4"/><path d="M21 9V5a2 2 0 0 0-2-2"/><path d="M3 21h4"/><path d="M9 21h6"/><path d="M15 21h6v-4"/><path d="M21 15v-2"/><path d="M3 15V9"/>
+            <path d="M7 12h2l2-5 2 10 2-5h2"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-navy-500 text-lg mb-3">Drug Billing & Vial Reconciliation</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          We integrate your EMR dispensing records with billing to ensure every vial pulled is a vial billed. Automated JW/JZ application, ASP window validation, and a live drug margin dashboard that updates monthly.
+        </p>
+        <div class="text-fgreen-500 text-sm font-semibold">Includes J-code crosswalk maintenance →</div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-8 card-hover scroll-reveal" style="box-shadow:0 2px 12px rgba(44,62,80,0.06);">
+        <div class="icon-box mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-navy-500 text-lg mb-3">Denial Prevention & Recovery</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Proprietary Excel/VBA analytics identify the root cause of systemic denial patterns before they repeat. We target 78%+ appeal success on worked denials — vs. the 52% industry average. No denial is abandoned.
+        </p>
+        <div class="text-fgreen-500 text-sm font-semibold">78%+ appeal success rate →</div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-8 card-hover scroll-reveal" style="box-shadow:0 2px 12px rgba(44,62,80,0.06);">
+        <div class="icon-box mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="5" rx="2"/>
+            <path d="M2 10h20"/>
+            <path d="M7 15h.01M11 15h2"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-navy-500 text-lg mb-3">Prior Authorization Management</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Our 72-hour auth protocol files authorization requests at treatment planning — not scheduling. Real-time auth tracking dashboard with escalation triggers. Target: &lt;3% auth-related denial rate vs. 12% industry standard.
+        </p>
+        <div class="text-fgreen-500 text-sm font-semibold">Zero treatment-day surprises →</div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-8 card-hover scroll-reveal" style="box-shadow:0 2px 12px rgba(44,62,80,0.06);">
+        <div class="icon-box mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-navy-500 text-lg mb-3">Patient Financial Navigation</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          We enroll every eligible patient in manufacturer co-pay assistance, Medicare Extra Help, and state pharmaceutical programs before their first infusion. Patient collection rates rise from 32% to 72%+. Adherent patients = completed treatment courses.
+        </p>
+        <div class="text-fgreen-500 text-sm font-semibold">72%+ patient collection rate →</div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="bg-navy-500 rounded-2xl p-8 card-hover scroll-reveal">
+        <div class="icon-box mb-5" style="background:rgba(39,174,96,0.18);">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="stroke:#27AE60;">
+            <path d="M3 3v18h18"/>
+            <path d="m19 9-5 5-4-4-3 3"/>
+          </svg>
+        </div>
+        <h3 class="font-tight font-bold text-white text-lg mb-3">2026 MFP Transition Planning</h3>
+        <p class="text-gray-300 text-sm leading-relaxed mb-5">
+          The IRA's Maximum Fair Price model will restructure drug reimbursement in 2026. We audit your formulary against CMS negotiation lists, model margin impact per drug, and implement acquisition cost renegotiation before the effective date.
+        </p>
+        <div class="text-fgreen-400 text-sm font-semibold">Don't get caught in January 2026 →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SPECIALTIES ══════════════════════════════ -->
+<section id="specialties" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 scroll-reveal">
+      <span class="section-label">Specialty Focus</span>
+      <h2 class="section-title font-tight font-bold text-navy-500 mb-4" style="font-size:2.25rem;">Built for the Most Complex Billing in Medicine</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto text-base">Select your specialty to see the specific billing challenges we resolve.</p>
+    </div>
+
+    <!-- Tab buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <button class="specialty-tab active" onclick="showSpecialty('onco')">Hematology & Oncology</button>
+      <button class="specialty-tab" onclick="showSpecialty('cardio')">Cardiology</button>
+    </div>
+
+    <!-- Oncology Panel -->
+    <div id="panel-onco" class="specialty-panel active scroll-reveal">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="font-tight font-bold text-navy-500 text-2xl mb-4">Hematology & Oncology RCM</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Oncology billing operates at the intersection of pharmaceutical distribution and clinical service delivery. The Buy-and-Bill model means your practice acquires high-cost drugs and bills the payer — a process with a dozen failure points that most billing teams are not equipped to manage.
+          </p>
+          <ul class="checklist space-y-1 mb-8">
+            <li>Infusion hierarchy coding (Initial 96413 → Sequential 96415 → Concurrent 96417) with zero hierarchy inversion</li>
+            <li>JW/JZ modifier application on every single-dose vial — Medicare-compliant, audit-proof</li>
+            <li>ASP+6% drug pricing validation against quarterly CMS ASP tables</li>
+            <li>Buy-and-bill acquisition cost reconciliation vs. reimbursement monitoring</li>
+            <li>Prior authorization for high-cost agents: Pembrolizumab, Nivolumab, Rituximab, Carboplatin combinations</li>
+            <li>2026 IRA Maximum Fair Price formulary impact modeling and margin protection</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Audit My Oncology Practice →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-100" style="box-shadow:0 4px 24px rgba(44,62,80,0.07);">
+          <div class="text-sm font-semibold text-navy-500 mb-5 uppercase tracking-wide">Common Oncology Denial Patterns We Resolve</div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">JW modifier not captured</div>
+              <div class="text-gray-400 text-xs">$240K–$600K annual loss per mid-size practice</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Infusion hierarchy "flip" error</div>
+              <div class="text-gray-400 text-xs">Pre-med coded as Initial instead of chemotherapy agent</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Prior auth denied — no appeal</div>
+              <div class="text-gray-400 text-xs">60% of appealed PA denials are recoverable</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">ASP billing outside window</div>
+              <div class="text-gray-400 text-xs">Systematic denial when billed outside CMS quarterly table</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">MFP margin exposure (2026)</div>
+              <div class="text-gray-400 text-xs">Practices unaware of IRA impact will face negative margins</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cardiology Panel -->
+    <div id="panel-cardio" class="specialty-panel scroll-reveal">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="font-tight font-bold text-navy-500 text-2xl mb-4">Cardiology RCM</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Cardiology practices face a unique billing paradox: high-value procedures with razor-thin error tolerance. A single modifier error on a cardiac catheterization or a bundling issue on an echocardiogram can trigger a cascade of denials across an entire payer contract.
+          </p>
+          <ul class="checklist space-y-1 mb-8">
+            <li>Cardiac catheterization coding — right heart, left heart, combined procedures (93451–93461) with proper add-on code sequencing</li>
+            <li>Echocardiography complete vs. limited (93306/93307) with Doppler and color flow documentation requirements</li>
+            <li>Stress testing hierarchy — exercise, pharmacological, nuclear (93015–93018, 78451–78454)</li>
+            <li>Implantable device billing — ICD, pacemaker, loop recorder — facility vs. professional split billing</li>
+            <li>Cardiology infusion billing: Amiodarone, Dobutamine, Milrinone (high-cost drug protocols)</li>
+            <li>Medicare CPTS payment review — global vs. component billing for interventional procedures</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Audit My Cardiology Practice →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-100" style="box-shadow:0 4px 24px rgba(44,62,80,0.07);">
+          <div class="text-sm font-semibold text-navy-500 mb-5 uppercase tracking-wide">Common Cardiology Denial Patterns We Resolve</div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Global period billing errors</div>
+              <div class="text-gray-400 text-xs">Services within 90-day global denied without modifier 24/25</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Echo incomplete documentation</div>
+              <div class="text-gray-400 text-xs">93306 denied — all views required; missing Doppler report elements</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Interventional bundling (NCCI edits)</div>
+              <div class="text-gray-400 text-xs">Stent + angioplasty unbundled incorrectly — audit trigger</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Device implant split billing</div>
+              <div class="text-gray-400 text-xs">ICD/pacemaker professional vs. facility component mismatch</div>
+            </div>
+          </div>
+          <div class="ripple-row">
+            <div class="ripple-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Infusion drug authorization gap</div>
+              <div class="text-gray-400 text-xs">High-cost cardiology infusions denied without prior auth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ RIPPLE IMPACT ══════════════════════════ -->
+<section id="impact" class="py-24 bg-navy-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 scroll-reveal">
+      <span class="text-fgreen-400 text-xs font-bold tracking-widest uppercase mb-3 block">The Math Doesn't Lie</span>
+      <h2 class="font-tight font-bold text-white mb-4" style="font-size:2.25rem;">The Ripple Impact of a 2% Error</h2>
+      <p class="text-gray-300 max-w-2xl mx-auto text-base">
+        A 2% billing error on drug wastage isn't a rounding issue. On a $20,000 specialty drug across 50 patients, it's $240,000 that already left your practice. We call this the Ripple Effect — and we stop it.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 scroll-reveal">
+      <!-- The calculation -->
+      <div class="lg:col-span-2 bg-navy-700 rounded-2xl p-8">
+        <div class="text-fgreen-400 text-sm font-semibold uppercase tracking-wide mb-6">Live Calculation — Pembrolizumab (Keytruda) Practice</div>
+        <div class="space-y-5">
+          <div class="flex justify-between items-center py-3 border-b border-navy-600">
+            <span class="text-gray-300 text-sm">Gross charge per patient infusion session</span>
+            <span class="font-tight font-bold text-white">$20,000</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-navy-600">
+            <span class="text-gray-300 text-sm">JW wastage billing error rate (typical unmanaged practice)</span>
+            <span class="font-tight font-bold text-red-400">2%</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-navy-600">
+            <span class="text-gray-300 text-sm">Revenue missed per patient per session</span>
+            <span class="font-tight font-bold text-red-400">$400</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-navy-600">
+            <span class="text-gray-300 text-sm">Patients receiving Pembrolizumab per month</span>
+            <span class="font-tight font-bold text-white">50</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-navy-600">
+            <span class="text-gray-300 text-sm">Monthly revenue loss from this single error</span>
+            <span class="font-tight font-bold text-red-400">$20,000</span>
+          </div>
+          <div class="flex justify-between items-center py-4 bg-red-900/30 px-4 rounded-xl -mx-2">
+            <span class="text-white font-semibold">Annual Revenue Loss (JW modifier alone)</span>
+            <span class="font-tight font-extrabold text-red-400 text-2xl">$240,000</span>
+          </div>
+          <div class="flex justify-between items-center py-4 bg-fgreen-900/30 px-4 rounded-xl -mx-2">
+            <span class="text-white font-semibold">Conservative full-practice annual leakage</span>
+            <span class="font-tight font-extrabold text-fgreen-400 text-2xl">$828K–$1.1M</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- What that money equals -->
+      <div class="space-y-4">
+        <div class="bg-navy-700 rounded-2xl p-6">
+          <div class="text-gray-400 text-xs uppercase tracking-wide mb-2">$240,000 would fund</div>
+          <div class="text-white font-semibold mb-1">1.5 FTE Clinical Staff</div>
+          <div class="text-gray-400 text-xs">A full-time infusion nurse + part-time MA</div>
+        </div>
+        <div class="bg-navy-700 rounded-2xl p-6">
+          <div class="text-gray-400 text-xs uppercase tracking-wide mb-2">$240,000 would fund</div>
+          <div class="text-white font-semibold mb-1">2 New Infusion Chairs</div>
+          <div class="text-gray-400 text-xs">Capacity for 8–10 additional patients daily</div>
+        </div>
+        <div class="bg-navy-700 rounded-2xl p-6">
+          <div class="text-gray-400 text-xs uppercase tracking-wide mb-2">$240,000 would fund</div>
+          <div class="text-white font-semibold mb-1">Full Clinical Trial Budget</div>
+          <div class="text-gray-400 text-xs">12 months as a Phase II participant site</div>
+        </div>
+        <div class="bg-fgreen-500 rounded-2xl p-6">
+          <div class="text-white/80 text-xs uppercase tracking-wide mb-2">Instead it disappeared because of</div>
+          <div class="text-white font-bold text-lg mb-1">A Missing Modifier</div>
+          <div class="text-white/80 text-xs">JW — two characters. Fixed in 90 days by Paedagogus RCM.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ WHY US ══════════════════════════════════ -->
+<section id="why" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="scroll-reveal">
+        <span class="section-label">Why Paedagogus</span>
+        <h2 class="section-title font-tight font-bold text-navy-500 mb-6" style="font-size:2.25rem;">We Are Not a Billing Service.<br/>We Are Your Revenue Guardian.</h2>
+        <p class="text-gray-500 leading-relaxed mb-8">
+          A billing service submits claims. A Guardian ensures every vial pulled is a vial billed, every drug-wasted unit has a JW modifier, every infusion hierarchy is coded correctly from the first claim, and every denial is worked until it is recovered or every avenue is exhausted.
+        </p>
+        <div class="space-y-6">
+          <div class="stat-stripe">
+            <div class="font-semibold text-navy-500 mb-1">Data-Driven, Not Intuition-Driven</div>
+            <div class="text-gray-500 text-sm leading-relaxed">We build custom Excel/VBA analytics models for each client — not generic reports. We find the patterns your billing system won't surface automatically.</div>
+          </div>
+          <div class="stat-stripe">
+            <div class="font-semibold text-navy-500 mb-1">Specialty-Only Focus</div>
+            <div class="text-gray-500 text-sm leading-relaxed">We work exclusively with Hematology, Oncology, and Cardiology practices. We know what a hierarchy inversion costs. We know what ASP+6% means. We speak your specialty's language.</div>
+          </div>
+          <div class="stat-stripe">
+            <div class="font-semibold text-navy-500 mb-1">Transparent KPI Governance</div>
+            <div class="text-gray-500 text-sm leading-relaxed">A monthly dashboard delivered by the 10th of every month: NCR, Days in A/R, CCR, denial rate, JW capture rate, auth approval rate. You always know exactly where every dollar stands.</div>
+          </div>
+          <div class="stat-stripe">
+            <div class="font-semibold text-navy-500 mb-1">Zero-Disruption Onboarding</div>
+            <div class="text-gray-500 text-sm leading-relaxed">Our 90-day transition protocol ensures no claim is orphaned. Cash flow never stops. No practice has experienced a revenue gap during a Paedagogus onboarding.</div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-reveal">
+        <!-- 90-day timeline -->
+        <div class="bg-gray-50 rounded-2xl p-8">
+          <div class="text-navy-500 font-tight font-bold text-lg mb-6">Your First 90 Days with Paedagogus</div>
+          <div class="space-y-6">
+            <div class="timeline-item">
+              <div class="timeline-dot"><span>1</span></div>
+              <div class="font-semibold text-navy-500 text-sm mb-1">Days 1–30: Intelligence & Infrastructure</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Complete 835/ERA audit, open A/R prioritization, payer contract mapping, JW/JZ protocol implementation, clearinghouse integration. First clean claims submitted.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"><span>2</span></div>
+              <div class="font-semibold text-navy-500 text-sm mb-1">Days 31–60: Recovery & Optimization</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Appeal all recoverable denied claims, implement 72-hour auth protocol, enroll patients in co-pay assistance programs, establish weekly KPI calls.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"><span>3</span></div>
+              <div class="font-semibold text-navy-500 text-sm mb-1">Days 61–90: Stabilization & Projection</div>
+              <div class="text-gray-500 text-xs leading-relaxed">Formal 90-Day Financial Impact Report. 12-month revenue projection. MFP readiness assessment. SLA commitments formalized for Year 2.</div>
+            </div>
+          </div>
+          <div class="mt-8 p-4 bg-fgreen-50 rounded-xl border border-fgreen-200">
+            <div class="text-fgreen-700 font-semibold text-sm mb-1">Typical 90-Day Recovery</div>
+            <div class="text-fgreen-600 text-xs">Engagement fee recovered within 60–90 days from identified leakage alone. Every month after is pure margin improvement.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ══════════════════════════════════ -->
+<section id="contact" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Left: copy -->
+      <div class="scroll-reveal">
+        <span class="section-label">Get Started</span>
+        <h2 class="section-title font-tight font-bold text-navy-500 mb-6" style="font-size:2.25rem;">Request Your Complimentary 90-Day Revenue Audit</h2>
+        <p class="text-gray-500 leading-relaxed mb-8">
+          We'll analyze your last 90 days of 835/ERA files across six forensic lenses and return a confidential Gap Analysis Report within two business days — at no cost, no obligation. You'll see exactly what's leaking and exactly how much.
+        </p>
+        <div class="space-y-5">
+          <div class="flex gap-4 items-start">
+            <div class="icon-box flex-shrink-0" style="background:#eafaf1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="1.75" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.18 11a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.12 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 14.92z"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-navy-500 text-sm">Free Confidential Audit</div>
+              <div class="text-gray-500 text-sm">No obligation. Two business day turnaround.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="icon-box flex-shrink-0" style="background:#eafaf1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="1.75" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-navy-500 text-sm">HIPAA-Conscious Communication</div>
+              <div class="text-gray-500 text-sm">This form collects practice contact info only. No patient data. Secure transmission.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="icon-box flex-shrink-0" style="background:#eafaf1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-navy-500 text-sm">Response within 4 Business Hours</div>
+              <div class="text-gray-500 text-sm">A specialist — not a sales rep — will contact you directly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="scroll-reveal">
+        <div class="bg-white rounded-2xl p-8 border border-gray-100" style="box-shadow:0 4px 24px rgba(44,62,80,0.07);">
+          <div class="text-xs text-gray-400 bg-gray-50 rounded-lg p-3 mb-6 border border-gray-100">
+            <strong>Important:</strong> This form is for business inquiries only. Do not submit patient names, diagnoses, insurance IDs, or any protected health information (PHI).
+          </div>
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="form-name" value="contact"/>
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field"/></label></p>
+
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="form-label" for="fname">First Name *</label>
+                <input class="form-input" type="text" id="fname" name="first_name" required placeholder="Dr. Sarah"/>
+              </div>
+              <div>
+                <label class="form-label" for="lname">Last Name *</label>
+                <input class="form-input" type="text" id="lname" name="last_name" required placeholder="Chen"/>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="email">Practice Email *</label>
+              <input class="form-input" type="email" id="email" name="email" required placeholder="billing@mypractice.com"/>
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(555) 000-0000"/>
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="practice">Practice / Organization Name *</label>
+              <input class="form-input" type="text" id="practice" name="practice" required placeholder="Westside Oncology Group"/>
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="specialty">Primary Specialty *</label>
+              <select class="form-input" id="specialty" name="specialty" required>
+                <option value="">Select your specialty...</option>
+                <option value="hematology_oncology">Hematology / Oncology</option>
+                <option value="oncology_only">Medical Oncology</option>
+                <option value="hematology_only">Hematology</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="interventional_cardiology">Interventional Cardiology</option>
+                <option value="multiple">Multiple Specialties</option>
+              </select>
+            </div>
+
+            <div class="mb-5">
+              <label class="form-label" for="challenge">Biggest Current Billing Challenge</label>
+              <select class="form-input" id="challenge" name="challenge">
+                <option value="">Select primary challenge...</option>
+                <option value="high_denial_rate">High Denial Rate</option>
+                <option value="high_ar">High Days in A/R</option>
+                <option value="drug_billing">Drug / Infusion Billing Accuracy</option>
+                <option value="prior_auth">Prior Authorization Delays</option>
+                <option value="mfp_readiness">2026 MFP Reimbursement Concern</option>
+                <option value="general_audit">General Revenue Audit</option>
+              </select>
+            </div>
+
+            <div class="mb-6">
+              <label class="form-label" for="message">Additional Context</label>
+              <textarea class="form-input" id="message" name="message" rows="3" placeholder="Tell us about your practice size, current EHR/PMS, or any specific billing concerns..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center text-base py-3.5">
+              Request My Free Audit
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <div id="formSuccess" class="hidden mt-4 p-4 bg-fgreen-50 text-fgreen-700 rounded-lg border border-fgreen-200 text-sm font-medium text-center">
+              Thank you! We'll be in touch within 4 business hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer class="bg-navy-800 py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-navy-600 flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7v5c0 5.25 4.1 10.16 10 11.33C17.9 22.16 22 17.25 22 12V7L12 2z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-tight font-bold text-white text-base tracking-tight">PAEDAGOGUS</span>
+            <span class="block text-xs font-semibold tracking-widest text-fgreen-400 leading-none">RCM</span>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+          We guard the revenue so you can guard the patient. Specialty RCM for Hematology, Oncology, and Cardiology.
+        </p>
+      </div>
+      <!-- Links -->
+      <div>
+        <div class="text-white font-semibold text-sm mb-4">Services</div>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li>835/ERA Gap Analysis Audit</li>
+          <li>Drug Billing & Vial Reconciliation</li>
+          <li>Denial Prevention & Recovery</li>
+          <li>Prior Authorization Management</li>
+          <li>Patient Financial Navigation</li>
+          <li>2026 MFP Transition Planning</li>
+        </ul>
+      </div>
+      <!-- Specialties -->
+      <div>
+        <div class="text-white font-semibold text-sm mb-4">Specialties</div>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li>Hematology & Oncology</li>
+          <li>Medical Oncology (Buy-and-Bill)</li>
+          <li>Cardiology</li>
+          <li>Interventional Cardiology</li>
+          <li>Infusion Center Management</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-navy-700 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="text-gray-500 text-xs">&copy; 2025 Paedagogus RCM. All rights reserved.</div>
+      <div class="text-gray-500 text-xs">Specialty Revenue Cycle Management | Not a legal, clinical, or HIPAA compliance firm.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ══════════════════════════════════ -->
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function showSpecialty(id) {
+  document.querySelectorAll('.specialty-tab').forEach((t,i) => {
+    const ids = ['onco','cardio'];
+    t.classList.toggle('active', ids[i] === id);
+  });
+  document.querySelectorAll('.specialty-panel').forEach(p => {
+    p.classList.toggle('active', p.id === 'panel-' + id);
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+function handleSubmit(e) {
+  const form = document.getElementById('contactForm');
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  setTimeout(() => {
+    document.getElementById('formSuccess').classList.remove('hidden');
+    form.reset();
+    btn.disabled = false;
+    btn.innerHTML = 'Request My Free Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  }, 1200);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
